@@ -1,0 +1,1 @@
+//this is where we pick what we want from the json, .map, and display green box in DOM?
