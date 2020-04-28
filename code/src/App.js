@@ -1,31 +1,48 @@
 import React from "react";
-import { Provider, useDispatch } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { data } from './reducers/data';
 import { ui } from './reducers/ui';
 import { BarcodeButton } from './components/BarcodeButton';
-import { BarcodeScanner } from "components/BarcodeScanner";
+import { BarcodeScanner } from './components/BarcodeScanner';
+import { ScannedInfo } from './components/ScannedInfo'
+
 
 const reducer = combineReducers ({
   data: data.reducer,
   ui: ui.reducer
 });
 
-export const store = configureStore({reducer});
-const dispatch = useDispatch(action, payload)
+const store = configureStore({reducer});
+
 
 const onDetected = (code) => {
   console.log(`Code: ${code}`);
-  fetch(`https://world.openfoodfacts.org/api/v0/product/${code}.json`)
-    .then((data) => data.json())
-    .then((json) => {
-      console.log(json); //connect to store
-      dispatch(action, payload.json)
-    });
-};
+  
+/* export const fetchData = () => {
+  const dispatch = useDispatch();
+  const data = useSelector((store) => store.reducer.items)
+
+ return (dispatch) => {
+   //setLoading true här
+    const onDetected = (code) => {
+      console.log(`Code: ${code}`);
+    fetch(`https://world.openfoodfacts.org/api/v0/product/${code}.json`)
+      .then((data) => data.json())
+      .then((json) =>  dispatch(data.actions.setData(json.results)))
+      //console.log(json); 
+     
+      //setLoading false här
+    }, [dispatch];
+};*/
+}
 
 export const App = () => {
-  return (
+  
+  //const dispatch = useDispatch();
+  //const scannedData = useSelector((store) => store.reducer.items);
+//const test = useSelector((state) => state.data.list.items)
+    return (
     <Provider store={store}>
     <div>
       <BarcodeButton />
@@ -39,8 +56,9 @@ export const App = () => {
         Use the field above to test barcodes manually and keep an eye on your
         console in the browser. i.e. Type 7311070347272 - Pågen Gifflar. Yum
       </p>
+      <ScannedInfo />
       
     </div>
     </Provider>
-  );
-};
+  )
+  }

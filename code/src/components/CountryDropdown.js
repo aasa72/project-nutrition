@@ -253,5 +253,7 @@ export const CountryDropdown = () => {
 	<option value="ZM">Zambia</option>
 	<option value="ZW">Zimbabwe</option>
 </select>
-  )
+	
+	//här en conditional och matchar valt land med varans land, och en respons bra/dåligt
+	)
 }
