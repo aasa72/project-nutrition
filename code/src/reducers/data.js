@@ -5,11 +5,28 @@ import { BarcodeButton } from '../components/BarcodeButton'
 const initialState = {
   list: {
     name: 'scannedGoods',
-    items: [{ 
-      namn: '7622300744663', 
-      color: 'red'},//vi hårdkodar code,namn och ursprungsland från json, kanske 5 varor av olika ursprung?
-      3465511101153, 
-      7310865071804 ]
+    items: [{ //The scanner doesn´t work so we hardcoded some info from the API
+      code: '7622300744663', 
+      product_name: 'Original Oreo',
+      manufacturing_places: ''
+      },
+      {code: '3465511101153',
+      product_name: 'Graines à germer alfalfa',
+      manufacturing_places: 'Sancoins,France'
+     },
+    {code: '7310865071804',
+      product_name: "Ekologisk Mellanmjölk",
+      manufacturing_places: "Sweden"
+    },
+    {code:'5449000133335',
+    product_name: 'Coca-Cola Zero',
+    manufacturing_places: 'Belgique,Sweden'
+    },
+  {code: '87158021',
+  product_name: 'Salt med Jod',
+  manufacturing_places: ''
+}
+]
   }
 };
 

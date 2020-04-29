@@ -255,5 +255,5 @@ export const CountryDropdown = () => {
 </select>
 	
 	//här en conditional och matchar valt land med varans land, och en respons bra/dåligt
-	)
+	)//add error message if country isn´t found
 }
