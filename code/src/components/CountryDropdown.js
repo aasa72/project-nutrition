@@ -1,8 +1,23 @@
 import React from 'react'
+import { ScannedInfo } from './ScannedInfo'
+
+
+//Den här koden är tänkt att jämföra valt land i <select> nedan med Country ifrån ScannedInfo.js och då ge olika svar beroende på om de matchar eller inte. Det är bara en grov skiss, eftersom vi inte har tillgång till Country än.
 
 export const CountryDropdown = () => {
+	/*const onSelect = selectedMatch()
+	const selectedMatch = () => {
+		if ('option') !== {info.product.product_name} {
+			return (<h1>You chose poorly!</h1>)
+		}
+		else {
+			return (<h1>You chose wisely!</h1>)
+		}
+	}*/
+
   return (
-<select>
+	<select>
+	<option value="SE">Sweden</option>
 	<option value="AF">Afghanistan</option>
 	<option value="AX">Åland Islands</option>
 	<option value="AL">Albania</option>
@@ -217,7 +232,7 @@ export const CountryDropdown = () => {
 	<option value="SR">Suriname</option>
 	<option value="SJ">Svalbard and Jan Mayen</option>
 	<option value="SZ">Swaziland</option>
-	<option value="SE">Sweden</option>
+	
 	<option value="CH">Switzerland</option>
 	<option value="SY">Syrian Arab Republic</option>
 	<option value="TW">Taiwan, Province of China</option>
@@ -253,7 +268,5 @@ export const CountryDropdown = () => {
 	<option value="ZM">Zambia</option>
 	<option value="ZW">Zimbabwe</option>
 </select>
-	
-	//här en conditional och matchar valt land med varans land, och en respons bra/dåligt
-	)//add error message if country isn´t found
+	)
 }
