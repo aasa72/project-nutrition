@@ -7,7 +7,10 @@ import { BarcodeButton } from './components/BarcodeButton';
 import { BarcodeScanner } from './components/BarcodeScanner';
 import { ScannedInfo } from './components/ScannedInfo'
 import { InputCodeManually } from 'components/InputCodeManually'
-import { CountryDropdown } from './components/CountryDropdown'
+import { LocalFoodText } from './components/LocalFoodText'
+import { Header } from 'lib/Header'
+import { Footer } from 'lib/Footer'
+import styled from 'styled-components'
 
 
 const reducer = combineReducers ({
@@ -22,11 +25,32 @@ export const App = () => {
     return (
     <Provider store={store}>
     <div>
-      
-      <BarcodeButton />
-      <InputCodeManually />
-      <ScannedInfo />
+      <Header />
+      <LocalFoodText />
+      <Content>
+        <BarcodeButton />
+        <InputCodeManually />
+        <ScannedInfo />
+      </Content>
+      <Footer />
     </div>
     </Provider>
   )
   }
+
+  const Content = styled.main`
+  display: flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  height: auto;
+  @media (max-width: 449px) {
+  width: 80%;
+  padding: 30px;
+  margin-top: 30px;
+  }
+  @media (min-width: 450px) and (max-width: 750px) {
+  width: 80%;
+  padding: 30px;
+  }
+`

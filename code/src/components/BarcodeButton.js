@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BarcodeScanner } from './BarcodeScanner'
 import { fetchData } from  "reducers/data"
+import { Button } from 'lib/Button'
+
 
 export const BarcodeButton = () => {
   const [showScanner, setShowScanner] = useState(false)
@@ -9,13 +11,12 @@ export const BarcodeButton = () => {
   
   return (
     <>
-      {!showScanner && ( <>
-        <button type="button" onClick={() => setShowScanner(true)}>
-          Show scanner
-        </button>
-        </>
+      {!showScanner && ( 
+        <Button 
+          type="button" onClick={() => setShowScanner(true)}
+          title= "Show scanner" />
       )}
-
+      
       {showScanner && (
         <BarcodeScanner onDetected={(code) => {
           //console.log('Got barcode', code)
