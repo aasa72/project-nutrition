@@ -1,10 +1,9 @@
 import React from "react";
-import { Provider, useDispatch, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { data } from './reducers/data';
 import { ui } from './reducers/ui';
 import { BarcodeButton } from './components/BarcodeButton';
-import { BarcodeScanner } from './components/BarcodeScanner';
 import { ScannedInfo } from './components/ScannedInfo'
 import { InputCodeManually } from 'components/InputCodeManually'
 import { LocalFoodText } from './components/LocalFoodText'
@@ -41,16 +40,16 @@ export const App = () => {
   const Content = styled.main`
   display: flex;
   flex-direction:column;
-  justify-content:space-between;
+  justyfy-content: center;
   align-items:center;
   height: auto;
   @media (max-width: 449px) {
-  width: 80%;
+  width: 100%;
   padding: 30px;
   margin-top: 30px;
   }
   @media (min-width: 450px) and (max-width: 750px) {
-  width: 80%;
+  width: 100%;
   padding: 30px;
   }
 `

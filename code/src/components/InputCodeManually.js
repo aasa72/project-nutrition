@@ -4,33 +4,33 @@ import { fetchData } from "../reducers/data"
 import { Button } from 'lib/Button'
 import styled from 'styled-components'
 
-  export const InputCodeManually = () => {
-    const [showInput, setInput] = useState(false)
-    const [code, setCode] = useState([])
-    const dispatch = useDispatch()
+export const InputCodeManually = () => {
+  const [code, setCode] = useState([])
+  const dispatch = useDispatch()
   
-    const handleSubmit = e => {
-      e.preventDefault()
-      dispatch(fetchData(code))
-      setCode([])
-    }
-  
-    return (
-      <>
-        <form onSubmit={handleSubmit}>
-            <Input
-              type='text'
-              value={code}
-              onChange={e => setCode(e.target.value)}
-              placeholder='Enter barcode number...'
-              required
-            />
-            <Button type='submit'
-            title = "Find product" />
-          </form>  
-      </> 
-    )
+  const handleSubmit = e => {
+    e.preventDefault()
+    dispatch(fetchData(code))
+    setCode([])
   }
+  
+  return (
+    <>
+      <h2>Or enter the barcode manually</h2>
+      <form onSubmit={handleSubmit}>
+        <Input
+          type='text'
+          value={code}
+          onChange={e => setCode(e.target.value)}
+          placeholder='Enter barcode number'
+          required
+        />
+        <Button type='submit'
+          title = "Find product" />
+      </form>  
+    </> 
+  )
+}
 
   const Input = styled.input`
   display: block;
